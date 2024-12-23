@@ -62,9 +62,9 @@ namespace Lab2.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("HouseId");
+                    b.HasIndex("BasketId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Deliveryes");
                 });
 
             modelBuilder.Entity("Lab2.DataAccess.Bread", b =>

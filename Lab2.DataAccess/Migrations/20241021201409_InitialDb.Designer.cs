@@ -64,7 +64,7 @@ namespace Lab2.DataAccess.Migrations
 
                     b.HasIndex("BasketId");
 
-                    b.ToTable("Addresses");
+                    b.ToTable("Deliveryes");
                 });
 
             modelBuilder.Entity("Lab2.DataAccess.Basket", b =>
@@ -94,7 +94,7 @@ namespace Lab2.DataAccess.Migrations
                     b.ToTable("Basket");
                 });
 
-            modelBuilder.Entity("Lab2.DataAccess.Address", b =>
+            modelBuilder.Entity("Lab2.DataAccess.Delivery", b =>
                 {
                     b.HasOne("Lab2.DataAccess.Basket", "Basket")
                         .WithMany("Delivery")

@@ -10,11 +10,11 @@ namespace Lab3.WpfApplication.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject
     {
-        public HouseDbContext _dbContext;
+        public BasketDbContext _dbContext;
 
-        public ObservableCollection<House> Houses { get; set; }
-        public ObservableCollection<Address> Addresses { get; set; }
-        public ObservableCollection<Garage> Garages { get; set; }
+        public ObservableCollection<Basket> Basket { get; set; }
+        public ObservableCollection<Delivery> Delivery { get; set; }
+        public ObservableCollection<Bread> Bread { get; set; }
         public ObservableCollection<int> FloorsOptions { get; set; }
 
         private string _ownerFilter;
@@ -39,99 +39,99 @@ namespace Lab3.WpfApplication.ViewModels
         }
 
 
-        private House _selectedHouse;
-        public House SelectedHouse
+        private Basket _selectedBasket;
+        public Basket SelectedBasket
         {
-            get => _selectedHouse;
+            get => _selectedBasket;
             set
             {
-                _selectedHouse = value;
-                OnPropertyChanged(nameof(SelectedHouse));
+                _selectedBasket = value;
+                OnPropertyChanged(nameof(SelectedBasket));
                 LoadChildData();
             }
         }
 
-        public ICommand SelectHouseCommand { get; }
+        public ICommand SelectBasketCommand { get; }
         public ICommand SearchCommand { get; }
         public ICommand DeleteCommand { get; }
-        public ICommand UpdateHouseCommand { get; }
-        public ICommand UpdateAddressCommand { get; }
-        public ICommand UpdateGarageCommand { get; }
+        public ICommand UpdateBasketCommand { get; }
+        public ICommand UpdateDeliveryCommand { get; }
+        public ICommand UpdateBreadCommand { get; }
 
         public MainWindowViewModel()
         {
-            _dbContext = new HouseDbContext();
-            Houses = new ObservableCollection<House>(_dbContext.Houses.ToList());
-            Addresses = new ObservableCollection<Address>();
-            Garages = new ObservableCollection<Garage>();
+            _dbContext = new BasketDbContext();
+            Basket = new ObservableCollection<Basket>(_dbContext.Baskets.ToList());
+            Delivery= new ObservableCollection<Delivery>();
+            Bread = new ObservableCollection<Bread>();
 
             FloorsOptions = new ObservableCollection<int>(Enumerable.Range(1, 10));
 
-            SelectHouseCommand = new RelayCommand(LoadChildData);
+            SelectBasketCommand = new RelayCommand(LoadChildData);
             SearchCommand = new RelayCommand(ApplyFilters);
-            DeleteCommand = new RelayCommand(DeleteHouse);
+            DeleteCommand = new RelayCommand(DeleteBasket);
 
-            UpdateHouseCommand = new RelayCommand(UpdateHouse);
-            UpdateAddressCommand = new RelayCommand<Address>(UpdateAddress);
-            UpdateGarageCommand = new RelayCommand<Garage>(UpdateGarage);
+            UpdateBasketCommand = new RelayCommand(UpdateBasket);
+            UpdateDeliveryCommand = new RelayCommand<Delivery>(UpdateDelivery);
+            UpdateBreadCommand = new RelayCommand<Bread>(UpdateBread);
         }
 
         public void LoadChildData()
         {
-            if (_selectedHouse == null)
+            if (_selectedBasket == null)
             {
-                Addresses.Clear();
-                Garages.Clear();
+                Delivery.Clear();
+                Bread.Clear();
                 return;
             }
 
-            LoadAddresses();
-            LoadGarage();
+            LoadDeliveryes();
+            LoadBread();
         }
 
-        public void LoadAddresses()
+        public void LoadDeliveryes()
         {
-            if (SelectedHouse != null)
+            if (SelectedBasket != null)
             {
-                var relatedAddresses = _dbContext.Addresses
-                    .Where(a => a.HouseId == SelectedHouse.Id)
+                var relatedDeliveryes = _dbContext.Deliveryes
+                    .Where(a => a.BasketId == SelectedBasket.Id)
                     .ToList();
 
-                Addresses.Clear();
-                foreach (var address in relatedAddresses)
+                Delivery.Clear();
+                foreach (var Delivery in relatedDeliveryes)
                 {
-                    Addresses.Add(address);
+                    Delivery.Add(Delivery);
                 }
             }
             else
             {
-                Addresses.Clear();
+                Delivery.Clear();
             }
         }
 
-        public void LoadGarage()
+        public void LoadBread()
         {
-            if (SelectedHouse != null)
+            if (SelectedBasket != null)
             {
-                var relatedGarages = _dbContext.Garages
-                    .Where(g => g.HouseId == SelectedHouse.Id)
+                var relatedBreads = _dbContext.Breads
+                    .Where(g => g.BasketId == SelectedBasket.Id)
                     .ToList();
 
-                Garages.Clear();
-                foreach (var garage in relatedGarages)
+                Bread.Clear();
+                foreach (var Bread in relatedBreads)
                 {
-                    Garages.Add(garage);
+                    Bread.Add(Bread);
                 }
             }
             else
             {
-                Garages.Clear();
+                Bread.Clear();
             }
         }
 
         public void ApplyFilters()
         {
-            var query = _dbContext.Houses.AsQueryable();
+            var query = _dbContext.Baskets.AsQueryable();
 
             if (!string.IsNullOrWhiteSpace(OwnerFilter))
             {
@@ -148,103 +148,103 @@ namespace Lab3.WpfApplication.ViewModels
                 query = query.Where(h => h.Floors == FloorsFilter.Value);
             }
 
-            Houses.Clear();
-            foreach (var house in query.ToList())
+            Basket.Clear();
+            foreach (var Basket in query.ToList())
             {
-                Houses.Add(house);
+                Basket.Add(Basket);
             }
         }
 
-        public void DeleteHouse()
+        public void DeleteBasket()
         {
-            if (_selectedHouse != null)
+            if (_selectedBasket != null)
             {
-                var relatedAddresses = _dbContext.Addresses
-                    .Where(a => a.HouseId == _selectedHouse.Id)
+                var relatedDeliveryes = _dbContext.Deliveryes
+                    .Where(a => a.BasketId == _selectedBasket.Id)
                     .ToList();
 
-                if (relatedAddresses.Any())
+                if (relatedDeliveryes.Any())
                 {
-                    _dbContext.Addresses.RemoveRange(relatedAddresses);
+                    _dbContext.Deliveryes.RemoveRange(relatedDeliveryes);
                 }
 
-                var relatedGarages = _dbContext.Garages
-                    .Where(g => g.HouseId == _selectedHouse.Id)
+                var relatedBreads = _dbContext.Breads
+                    .Where(g => g.BasketId == _selectedBasket.Id)
                     .ToList();
 
-                if (relatedGarages.Any())
+                if (relatedBreads.Any())
                 {
-                    _dbContext.Garages.RemoveRange(relatedGarages);
+                    _dbContext.Breads.RemoveRange(relatedBreads);
                 }
 
-                _dbContext.Houses.Remove(_selectedHouse);
+                _dbContext.Baskets.Remove(_selectedBasket);
 
                 _dbContext.SaveChanges();
 
-                Houses.Remove(_selectedHouse);
+                Basket.Remove(_selectedBasket);
 
-                Addresses.Clear();
-                Garages.Clear();
+                Delivery.Clear();
+                Bread.Clear();
 
-                SelectedHouse = null;
+                SelectedBasket = null;
             }
         }
 
-        public void UpdateHouse()
+        public void UpdateBasket()
         {
-            if (_selectedHouse != null)
+            if (_selectedBasket != null)
             {
-                var existingHouse = _dbContext.Houses.FirstOrDefault(h => h.Id == _selectedHouse.Id);
-                if (existingHouse != null)
+                var existingBasket = _dbContext.Baskets.FirstOrDefault(h => h.Id == _selectedBasket.Id);
+                if (existingBasket != null)
                 {
-                    existingHouse.Owner = _selectedHouse.Owner;
-                    existingHouse.YearBuilt = _selectedHouse.YearBuilt;
-                    existingHouse.Area = _selectedHouse.Area;
-                    existingHouse.Floors = _selectedHouse.Floors;
+                    existingBasket.Owner = _selectedBasket.Owner;
+                    existingBasket.YearBuilt = _selectedBasket.YearBuilt;
+                    existingBasket.Area = _selectedBasket.Area;
+                    existingBasket.Floors = _selectedBasket.Floors;
 
-                    _dbContext.Entry(existingHouse).State = EntityState.Modified;
+                    _dbContext.Entry(existingBasket).State = EntityState.Modified;
                     _dbContext.SaveChanges();
 
                 }
             }
         }
 
-        public void UpdateAddress(Address address)
+        public void UpdateDelivery(Delivery Delivery)
         {
-            if (address != null)
+            if (Delivery != null)
             {
-                var existingAddress = _dbContext.Addresses.FirstOrDefault(a => a.Id == address.Id);
-                if (existingAddress != null)
+                var existingDelivery = _dbContext.Deliveryes.FirstOrDefault(a => a.Id == Delivery.Id);
+                if (existingDelivery != null)
                 {
-                    existingAddress.Street = address.Street;
-                    existingAddress.City = address.City;
-                    existingAddress.PostalCode = address.PostalCode;
-                    existingAddress.Country = address.Country;
-                    existingAddress.Notes = address.Notes;
+                    existingDelivery.Street = Delivery.Street;
+                    existingDelivery.City = Delivery.City;
+                    existingDelivery.PostalCode = Delivery.PostalCode;
+                    existingDelivery.Country = Delivery.Country;
+                    existingDelivery.Notes = Delivery.Notes;
 
 
                     _dbContext.SaveChanges();
 
-                    var index = Addresses.IndexOf(address);
-                    Addresses[index] = existingAddress;
+                    var index = Delivery.IndexOf(Delivery);
+                    Delivery[index] = existingDelivery;
                 }
             }
         }
 
-        public void UpdateGarage(Garage garage)
+        public void UpdateBread(Bread Bread)
         {
-            if (garage != null)
+            if (Bread != null)
             {
-                var existingGarage = _dbContext.Garages.FirstOrDefault(g => g.Id == garage.Id);
-                if (existingGarage != null)
+                var existingBread = _dbContext.Breads.FirstOrDefault(g => g.Id == Bread.Id);
+                if (existingBread != null)
                 {
-                    existingGarage.Type = garage.Type;
-                    existingGarage.Size = garage.Size;
+                    existingBread.Type = Bread.Type;
+                    existingBread.Size = Bread.Size;
 
                     _dbContext.SaveChanges();
 
-                    var index = Garages.IndexOf(garage);
-                    Garages[index] = existingGarage;
+                    var index = Bread.IndexOf(Bread);
+                    Bread[index] = existingBread;
                 }
             }
         }

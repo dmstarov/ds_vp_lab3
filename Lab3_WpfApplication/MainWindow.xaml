@@ -41,12 +41,12 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
-            <Label Content="Houses:" FontWeight="Bold" />
-            <DataGrid x:Name="HousesDataGrid" 
-                      ItemsSource="{Binding Houses}" 
+            <Label Content="Baskets:" FontWeight="Bold" />
+            <DataGrid x:Name="BasketsDataGrid" 
+                      ItemsSource="{Binding Baskets}" 
                       AutoGenerateColumns="False" 
                       SelectionMode="Single" 
-                      SelectedItem="{Binding SelectedHouse, Mode=TwoWay}"
+                      SelectedItem="{Binding SelectedBasket, Mode=TwoWay}"
                       CanUserAddRows="False"
                       >
                 <DataGrid.Columns>
@@ -59,7 +59,7 @@
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                                     <Button Content="Update"
-                                            Command="{Binding DataContext.UpdateHouseCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                            Command="{Binding DataContext.UpdateBasketCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
                                             CommandParameter="{Binding}"
                                             Visibility="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}"
                                             Margin="0,0,10,0"
@@ -77,17 +77,17 @@
                 </DataGrid.Columns>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="SelectionChanged">
-                        <i:InvokeCommandAction Command="{Binding SelectHouseCommand}" />
+                        <i:InvokeCommandAction Command="{Binding SelectBasketCommand}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </DataGrid>
-            <Label Content="Adresses:" FontWeight="Bold"  Visibility="{Binding Addresses.Count, Converter={StaticResource VisibleConverter}}"  />
-            <DataGrid x:Name="AddressesDataGrid" 
-                      ItemsSource="{Binding Addresses}" 
+            <Label Content="Adresses:" FontWeight="Bold"  Visibility="{Binding Deliveryes.Count, Converter={StaticResource VisibleConverter}}"  />
+            <DataGrid x:Name="DeliveryesDataGrid" 
+                      ItemsSource="{Binding Deliveryes}" 
                       AutoGenerateColumns="False" 
                       SelectionMode="Single"
                       CanUserAddRows="False"
-                      Visibility="{Binding Addresses.Count, Converter={StaticResource VisibleConverter}}" 
+                      Visibility="{Binding Deliveryes.Count, Converter={StaticResource VisibleConverter}}" 
                       >
 
                 <DataGrid.Columns>
@@ -100,18 +100,18 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Update" 
-                                 Command="{Binding DataContext.UpdateAddressCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                 Command="{Binding DataContext.UpdateDeliveryCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
                                  CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Label Content="Garages:" FontWeight="Bold" Visibility="{Binding Garages.Count, Converter={StaticResource VisibleConverter}}" />
-            <DataGrid x:Name="GaragesDataGrid" 
-                      ItemsSource="{Binding Garages}" 
+            <Label Content="Breads:" FontWeight="Bold" Visibility="{Binding Breads.Count, Converter={StaticResource VisibleConverter}}" />
+            <DataGrid x:Name="BreadsDataGrid" 
+                      ItemsSource="{Binding Breads}" 
                       AutoGenerateColumns="False"
-                      Visibility="{Binding Garages.Count, Converter={StaticResource VisibleConverter}}"
+                      Visibility="{Binding Breads.Count, Converter={StaticResource VisibleConverter}}"
                       CanUserAddRows="False"
                       >
                 <DataGrid.Columns>
@@ -121,7 +121,7 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="Update" 
-                                   Command="{Binding DataContext.UpdateGarageCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
+                                   Command="{Binding DataContext.UpdateBreadCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}" 
                                    CommandParameter="{Binding}" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
