@@ -27,7 +27,7 @@ namespace Lab2.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Deliveryes",
+                name: "Delivery",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -41,9 +41,9 @@ namespace Lab2.DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Deliveryes", x => x.Id);
+                    table.PrimaryKey("PK_Delivery", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Deliveryes_Baskets_BasketId",
+                        name: "FK_Delivery_Baskets_BasketId",
                         column: x => x.BasketId,
                         principalTable: "Baskets",
                         principalColumn: "Id",
@@ -51,8 +51,8 @@ namespace Lab2.DataAccess.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Deliveryes_BasketId",
-                table: "Deliveryes",
+                name: "IX_Delivery_BasketId",
+                table: "Delivery",
                 column: "BasketId");
         }
 
@@ -60,7 +60,7 @@ namespace Lab2.DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Deliveryes");
+                name: "Delivery");
 
             migrationBuilder.DropTable(
                 name: "Baskets");

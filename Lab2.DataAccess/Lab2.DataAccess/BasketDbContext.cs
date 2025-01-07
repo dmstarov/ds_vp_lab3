@@ -15,7 +15,7 @@ namespace Lab2.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git_hub\LB2_DataAccess\Lab2.DataAccess\BasketDb.mdf;Integrated Security=True");
+                optionsBuilder.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Git_hub\LB2_DataAccess\Lab2.DataAccess\HouseDb.mdf;Integrated Security=True");
             }
         }
 

@@ -64,7 +64,7 @@ namespace Lab2.DataAccess.Migrations
 
                     b.HasIndex("BasketId");
 
-                    b.ToTable("Deliveryes");
+                    b.ToTable("Delivery");
                 });
 
             modelBuilder.Entity("Lab2.DataAccess.Basket", b =>

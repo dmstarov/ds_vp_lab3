@@ -18,14 +18,14 @@ namespace Lab2.DataAccess.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Size = table.Column<double>(type: "float", nullable: false),
-                    BasketId = table.Column<int>(type: "int", nullable: false)
+                    HouseId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Breads", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Breads_Basket_BasketId",
-                        column: x => x.BasketId,
+                        column: x => x.HouseId,
                         principalTable: "Basket",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
