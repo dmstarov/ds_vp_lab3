@@ -1,0 +1,15 @@
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\bin\Debug\net8.0\Lab2.DataAccess.deps.json
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\bin\Debug\net8.0\Lab2.DataAccess.runtimeconfig.json
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\bin\Debug\net8.0\Lab2.DataAccess.dll
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\bin\Debug\net8.0\Lab2.DataAccess.pdb
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.csproj.AssemblyReference.cache
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.AssemblyInfoInputs.cache
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.AssemblyInfo.cs
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.csproj.CoreCompileInputs.cache
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.sourcelink.json
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.dll
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\refint\Lab2.DataAccess.dll
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.pdb
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\Lab2.DataAccess.genruntimeconfig.cache
+C:\rtu\ds_vp_lab3\Lab2.DataAccess\Lab2.DataAccess\obj\Debug\net8.0\ref\Lab2.DataAccess.dll

@@ -1,0 +1,6 @@
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\Lab3.WpfApplication.csproj.AssemblyReference.cache
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\App.g.cs
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\Lab3.WpfApplication_MarkupCompile.cache
+C:\rtu\ds_vp_lab3\Lab3.WpfApplication\obj\Debug\net8.0-windows\Lab3.WpfApplication_MarkupCompile.lref

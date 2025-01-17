@@ -4044,11 +4044,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\rtu\\ds_vp_lab2\\Lab2.DataAccess\\Lab2.DataAccess.csproj",
+      "projectUniqueName": "C:\\rtu\\ds_vp_lab3\\Lab2.DataAccess\\Lab2.DataAccess\\Lab2.DataAccess.csproj",
       "projectName": "Lab2.DataAccess",
-      "projectPath": "C:\\rtu\\ds_vp_lab2\\Lab2.DataAccess\\Lab2.DataAccess.csproj",
+      "projectPath": "C:\\rtu\\ds_vp_lab3\\Lab2.DataAccess\\Lab2.DataAccess\\Lab2.DataAccess.csproj",
       "packagesPath": "C:\\Users\\dmsta\\.nuget\\packages\\",
-      "outputPath": "C:\\rtu\\ds_vp_lab2\\Lab2.DataAccess\\obj\\",
+      "outputPath": "C:\\rtu\\ds_vp_lab3\\Lab2.DataAccess\\Lab2.DataAccess\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dmsta\\AppData\\Roaming\\NuGet\\NuGet.Config",
